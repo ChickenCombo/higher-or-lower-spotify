@@ -19,7 +19,7 @@ Tech Stacks:
 1. Clone the repository.
 
 ```
-git clone ChickenCombo/new-portfolio
+git clone ChickenCombo/higher-or-lower-spotify
 ```
 
 2. Access the project directory and install dependencies.
