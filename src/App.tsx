@@ -1,23 +1,28 @@
 import { useState } from 'react';
 import Home from './pages/Home';
 import Game from './pages/Game';
+import Lost from './pages/Lost';
 
 const App = () => {
-  const [isHomeVisible, setHomeVisibility] = useState<boolean>(true);
+  const [hasGameStarted, setHasGameStarted] = useState<boolean>(true);
+  const [hasUserLost, setHasUserLost] = useState<boolean>(false);
 
   const handleStart = () => {
-    setHomeVisibility((value) => !value);
+    setHasGameStarted((value) => !value);
   };
 
   return (
-    /*
     <>
-      /*{isHomeVisible && <Home handleStart={handleStart} />}
-      {!isHomeVisible && <Game />}
-    </>
-    */
-    <>
-      <Game />
+      {hasGameStarted && <Home handleStart={handleStart} />}
+      {!hasGameStarted && !hasUserLost && (
+        <Game hasUserLost={hasUserLost} setHasUserLost={setHasUserLost} />
+      )}
+      {hasUserLost && (
+        <Lost
+          setHasGameStarted={setHasGameStarted}
+          setHasUserLost={setHasUserLost}
+        />
+      )}
     </>
   );
 };

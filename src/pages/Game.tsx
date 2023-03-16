@@ -1,12 +1,19 @@
 import { getAnimeList } from '@/Anime';
-import { Anime, Score } from '@/Types';
+import { Anime } from '@/Types';
 import CurrentScore from '@/components/CurrentScore';
 import HighScore from '@/components/HighScore';
 import LeftAnime from '@/components/LeftAnime';
 import RightAnime from '@/components/RightAnime';
 import { useState } from 'react';
 
-const Game = () => {
+interface GameProps {
+  hasUserLost: boolean;
+  setHasUserLost: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Game = (props: GameProps) => {
+  const { hasUserLost, setHasUserLost } = props;
+
   const animeList: Array<Anime> = getAnimeList();
 
   const getRandomAnime = () => {
@@ -24,6 +31,7 @@ const Game = () => {
   const [rightAnime, setRightAnime] = useState<Anime>(getRandomAnime());
   const [score, setScore] = useState<number>(0);
 
+  // TODO: Return true if both equal
   const answer = parseInt(leftAnime.score) < parseInt(rightAnime.score);
 
   const guessAnswer = (guess: boolean) => {
@@ -33,6 +41,7 @@ const Game = () => {
       setRightAnime(getRandomAnime());
     } else {
       setScore(0);
+      setHasUserLost(true);
     }
   };
 
