@@ -1,7 +1,8 @@
-import { GuessAnime } from '@/Types';
+import { GuessAnime } from '@/utils/Types';
 
 const RightAnime = (props: GuessAnime) => {
   const { title, score, guessAnswer } = props;
+
   return (
     <>
       <h1 className="px-4 text-center text-3xl font-bold text-white drop-shadow-md">

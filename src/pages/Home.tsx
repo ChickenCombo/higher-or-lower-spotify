@@ -1,6 +1,4 @@
-interface HomeProps {
-  handleStart: () => void;
-}
+import { HomeProps } from '@/utils/Types';
 
 const Home = (props: HomeProps) => {
   const { handleStart } = props;

@@ -1,7 +1,8 @@
-import { Anime } from '@/Types';
+import { Anime } from '@/utils/Types';
 
 const LeftAnime = (props: Anime) => {
   const { title, score } = props;
+
   return (
     <>
       <h1 className="px-4 text-center text-3xl font-bold text-white drop-shadow-md">

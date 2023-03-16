@@ -1,14 +1,10 @@
-import { getAnimeList } from '@/Anime';
-import { Anime } from '@/Types';
+import { getAnimeList } from '@/utils/Anime';
+import { Anime, GameProps } from '@/utils/Types';
 import CurrentScore from '@/components/CurrentScore';
 import HighScore from '@/components/HighScore';
 import LeftAnime from '@/components/LeftAnime';
 import RightAnime from '@/components/RightAnime';
 import { useState } from 'react';
-
-interface GameProps {
-  setHasUserLost: React.Dispatch<React.SetStateAction<boolean>>;
-}
 
 const Game = (props: GameProps) => {
   const { setHasUserLost } = props;

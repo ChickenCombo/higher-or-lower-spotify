@@ -1,4 +1,4 @@
-import { Score } from '@/Types';
+import { Score } from '@/utils/Types';
 
 const CurrentScore = (props: Score) => {
   const { score } = props;

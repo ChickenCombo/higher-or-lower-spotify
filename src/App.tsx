@@ -13,15 +13,15 @@ const App = () => {
 
   return (
     <>
-      {hasGameStarted && <Home handleStart={handleStart} />}
-      {!hasGameStarted && !hasUserLost && (
-        <Game hasUserLost={hasUserLost} setHasUserLost={setHasUserLost} />
-      )}
-      {hasUserLost && (
+      {hasGameStarted ? (
+        <Home handleStart={handleStart} />
+      ) : hasUserLost ? (
         <Lost
           setHasGameStarted={setHasGameStarted}
           setHasUserLost={setHasUserLost}
         />
+      ) : (
+        <Game setHasUserLost={setHasUserLost} />
       )}
     </>
   );

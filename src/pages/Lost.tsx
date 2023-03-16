@@ -1,7 +1,4 @@
-interface LostProps {
-  setHasGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
-  setHasUserLost: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { LostProps } from '@/utils/Types';
 
 const Lost = (props: LostProps) => {
   const { setHasUserLost, setHasGameStarted } = props;
