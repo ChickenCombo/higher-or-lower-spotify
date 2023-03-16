@@ -7,12 +7,11 @@ import RightAnime from '@/components/RightAnime';
 import { useState } from 'react';
 
 interface GameProps {
-  hasUserLost: boolean;
   setHasUserLost: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const Game = (props: GameProps) => {
-  const { hasUserLost, setHasUserLost } = props;
+  const { setHasUserLost } = props;
 
   const animeList: Array<Anime> = getAnimeList();
 
@@ -31,11 +30,14 @@ const Game = (props: GameProps) => {
   const [rightAnime, setRightAnime] = useState<Anime>(getRandomAnime());
   const [score, setScore] = useState<number>(0);
 
-  // TODO: Return true if both equal
   const answer = parseInt(leftAnime.score) < parseInt(rightAnime.score);
 
   const guessAnswer = (guess: boolean) => {
-    if (answer === guess) {
+    const win =
+      answer === guess ||
+      parseInt(leftAnime.score) === parseInt(rightAnime.score);
+
+    if (win) {
       setScore((score) => score + 1);
       setLeftAnime(rightAnime);
       setRightAnime(getRandomAnime());
