@@ -7,17 +7,17 @@ const LeftAnime = (props: Anime) => {
     <div className="flex h-full w-full flex-col items-center justify-center">
       <img
         src={image_url}
-        className="h-[30vw] w-[37vw] rounded-xl object-cover md:h-[25vw] md:w-[32vw]"
+        className="h-[30vw] w-[37vw] transform rounded-xl object-cover transition duration-200 hover:scale-105 md:h-[25vw] md:w-[32vw]"
       />
       <h1 className="mt-4 px-4 text-center text-3xl font-bold text-white drop-shadow-md">
         &quot;{title}&quot;
       </h1>
-      <p className="text-center text-sm text-white drop-shadow-md">has</p>
-      <h1 className="text-center text-3xl font-bold text-green-400 drop-shadow-md">
+      <p className="m-4 text-center text-sm text-white drop-shadow-md">has</p>
+      <h1 className="text-center text-6xl font-bold text-green-400 drop-shadow-md">
         {score}
       </h1>
       <p className="text-center text-sm text-white drop-shadow-md">
-        average monthly listeners
+        monthly listeners
       </p>
     </div>
   );

@@ -1,18 +1,31 @@
 import { HomeProps } from '@/utils/Types';
+import { BsSpotify } from 'react-icons/bs';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const Home = (props: HomeProps) => {
   const { handleStart } = props;
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center p-8 text-center">
-      <h1 className="font-bold">Which anime has a higher score?</h1>
-      <p>A simple game of higher or lower based on anime ratings.</p>
-      <p>All data was based on AniList&apos;s user ratings in 2022.</p>
+    <div className="flex h-screen flex-col items-center justify-center bg-gray-800 p-8 text-center text-white">
+      <BsSpotify className="m-8 scale-100 transform text-9xl text-[#1fdf64] transition duration-200 hover:scale-105" />
+      <h1 className="text-3xl font-bold">
+        Which artist has a higher monthly listener on Spotify?
+      </h1>
+      <p className="text-xl">
+        A simple game of higher or lower based on Spotify&apos;s monthly
+        listeners
+      </p>
+      <p className="text-xl">
+        All data was taken on Spotify&apos;s monthly listeners in March of 2023.
+      </p>
       <button
-        className="mt-4 rounded-full bg-blue-400 px-10 py-3 text-white"
+        type="button"
+        className="m-5 w-full max-w-[10rem] transform cursor-pointer rounded-full bg-blue-500 py-2 text-lg font-bold transition duration-200 hover:scale-105 hover:bg-blue-600"
         onClick={handleStart}
       >
-        Start
+        <div className="flex items-center justify-center">
+          Start &nbsp; <AiOutlineArrowRight />
+        </div>
       </button>
     </div>
   );

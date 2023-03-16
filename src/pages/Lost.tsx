@@ -1,4 +1,5 @@
 import { LostProps } from '@/utils/Types';
+import { AiOutlineArrowRight } from 'react-icons/ai';
 
 const Lost = (props: LostProps) => {
   const { setHasUserLost, setHasGameStarted } = props;
@@ -9,14 +10,18 @@ const Lost = (props: LostProps) => {
   };
 
   return (
-    <div className="flex h-screen flex-col items-center justify-center bg-slate-500 p-8 text-center">
-      <h1 className="font-bold">You lost</h1>
-      <input
+    <div className="flex h-screen flex-col items-center justify-center bg-gray-800 p-8 text-center text-white">
+      <h1 className="text-3xl font-bold">You lost!</h1>
+      <h1 className="text-3xl font-bold">(╥﹏╥)</h1>
+      <button
         type="button"
-        value="Home"
-        className="m-1 cursor-pointer rounded-full bg-red-400 px-12 py-2 text-lg font-bold text-white hover:bg-red-500"
+        className="m-8 w-full max-w-[10rem] transform cursor-pointer rounded-full bg-blue-500 py-2 text-lg font-bold transition duration-200 hover:scale-105 hover:bg-blue-600"
         onClick={resetGame}
-      />
+      >
+        <div className="flex items-center justify-center">
+          Home &nbsp; <AiOutlineArrowRight />
+        </div>
+      </button>
     </div>
   );
 };
