@@ -4,7 +4,7 @@ import CurrentScore from '@/components/CurrentScore';
 import HighScore from '@/components/HighScore';
 import LeftAnime from '@/components/LeftAnime';
 import RightAnime from '@/components/RightAnime';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Game = (props: GameProps) => {
   const { setHasUserLost } = props;
@@ -22,9 +22,27 @@ const Game = (props: GameProps) => {
     )[0];
   };
 
+  const localStorage = window.localStorage;
+  if (!localStorage.getItem('spotify-high-score')) {
+    localStorage.setItem('spotify-high-score', '0');
+  }
+
   const [leftAnime, setLeftAnime] = useState<Anime>(getRandomAnime());
   const [rightAnime, setRightAnime] = useState<Anime>(getRandomAnime());
   const [score, setScore] = useState<number>(0);
+  const [highScore, setHighScore] = useState<number>(
+    Number(localStorage.getItem('spotify-high-score')),
+  );
+
+  useEffect(() => {
+    const storedHighScore =
+      Number(localStorage.getItem('spotify-high-score')) || 0;
+
+    if (score > storedHighScore) {
+      localStorage.setItem('spotify-high-score', score.toString());
+      setHighScore(score);
+    }
+  }, [score]);
 
   const answer = parseInt(leftAnime.score) < parseInt(rightAnime.score);
 
@@ -44,8 +62,8 @@ const Game = (props: GameProps) => {
   };
 
   return (
-    <div className="grid h-screen w-screen grid-rows-2 md:grid-cols-2">
-      <div className="flex h-full w-full flex-col items-center justify-center bg-yellow-300 md:h-screen">
+    <div className="grid h-screen w-screen grid-rows-2 bg-gray-800 md:grid-cols-2">
+      <div className="h-full w-full md:h-screen">
         <LeftAnime
           title={leftAnime.title}
           score={leftAnime.score}
@@ -53,7 +71,7 @@ const Game = (props: GameProps) => {
         />
       </div>
 
-      <div className="flex h-full w-full flex-col items-center justify-center bg-blue-300 md:h-screen">
+      <div className="h-full w-full md:h-screen">
         <RightAnime
           title={rightAnime.title}
           score={rightAnime.score}
@@ -62,7 +80,7 @@ const Game = (props: GameProps) => {
         />
       </div>
 
-      <HighScore score={0} />
+      <HighScore score={highScore} />
       <CurrentScore score={score} />
     </div>
   );

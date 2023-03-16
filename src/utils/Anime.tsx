@@ -435,8 +435,8 @@ export const getAnimeList = (): Array<Anime> => {
         'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx107660-nANW2Fco3aDK.png',
     },
     {
-      title: '78',
-      score: 'No Game No Life',
+      title: 'No Game No Life',
+      score: '78',
       image_url:
         'https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/nx19815-bIo51RMWWhLv.jpg',
     },
