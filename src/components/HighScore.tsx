@@ -1,0 +1,12 @@
+import { Score } from '@/Types';
+
+const HighScore = (props: Score) => {
+  const { score } = props;
+  return (
+    <div className="absolute bottom-4 left-4 text-xl font-bold text-white drop-shadow-md md:bottom-8 md:left-8">
+      High Score: {score}
+    </div>
+  );
+};
+
+export default HighScore;
