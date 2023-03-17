@@ -62,27 +62,32 @@ const Game = (props: GameProps) => {
   };
 
   return (
-    <div className="grid h-screen w-screen grid-rows-2 bg-gray-800 md:grid-cols-2">
-      <div className="h-full w-full md:h-screen">
-        <LeftArtist
-          title={leftArtist.title}
-          score={leftArtist.score}
-          image_url={leftArtist.image_url}
-        />
+    <>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform transform select-none rounded-full bg-white p-8 text-lg font-bold shadow-sm transition duration-200 hover:scale-105">
+        VS
       </div>
+      <div className="grid h-screen w-screen grid-rows-2 bg-gray-800 md:grid-cols-2">
+        <div className="h-full w-full md:h-screen">
+          <LeftArtist
+            title={leftArtist.title}
+            score={leftArtist.score}
+            image_url={leftArtist.image_url}
+          />
+        </div>
 
-      <div className="h-full w-full md:h-screen">
-        <RightArtist
-          title={rightArtist.title}
-          score={rightArtist.score}
-          image_url={rightArtist.image_url}
-          guessAnswer={guessAnswer}
-        />
+        <div className="h-full w-full md:h-screen">
+          <RightArtist
+            title={rightArtist.title}
+            score={rightArtist.score}
+            image_url={rightArtist.image_url}
+            guessAnswer={guessAnswer}
+          />
+        </div>
+
+        <HighScore score={highScore} />
+        <CurrentScore score={score} />
       </div>
-
-      <HighScore score={highScore} />
-      <CurrentScore score={score} />
-    </div>
+    </>
   );
 };
 
