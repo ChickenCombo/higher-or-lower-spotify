@@ -1,23 +1,23 @@
-import { getAnimeList } from '@/utils/Anime';
-import { Anime, GameProps } from '@/utils/Types';
+import { getArtistList } from '@/utils/Artist';
+import { Artist, GameProps } from '@/utils/Types';
 import CurrentScore from '@/components/CurrentScore';
 import HighScore from '@/components/HighScore';
-import LeftAnime from '@/components/LeftAnime';
-import RightAnime from '@/components/RightAnime';
+import LeftArtist from '@/components/LeftArtist';
+import RightArtist from '@/components/RightArtist';
 import { useState, useEffect } from 'react';
 
 const Game = (props: GameProps) => {
   const { setHasUserLost } = props;
 
-  const animeList: Array<Anime> = getAnimeList();
+  const artistList: Array<Artist> = getArtistList();
 
-  const getRandomAnime = () => {
-    if (animeList.length == 0) {
-      getAnimeList();
+  const getRandomArtist = () => {
+    if (artistList.length == 0) {
+      getArtistList();
     }
 
-    return animeList.splice(
-      Math.floor(Math.random() * (animeList.length - 1)),
+    return artistList.splice(
+      Math.floor(Math.random() * (artistList.length - 1)),
       1,
     )[0];
   };
@@ -27,8 +27,8 @@ const Game = (props: GameProps) => {
     localStorage.setItem('spotify-high-score', '0');
   }
 
-  const [leftAnime, setLeftAnime] = useState<Anime>(getRandomAnime());
-  const [rightAnime, setRightAnime] = useState<Anime>(getRandomAnime());
+  const [leftArtist, setLeftArtist] = useState<Artist>(getRandomArtist());
+  const [rightArtist, setRightArtist] = useState<Artist>(getRandomArtist());
   const [score, setScore] = useState<number>(0);
   const [highScore, setHighScore] = useState<number>(
     Number(localStorage.getItem('spotify-high-score')),
@@ -44,17 +44,17 @@ const Game = (props: GameProps) => {
     }
   }, [score]);
 
-  const answer = parseInt(leftAnime.score) < parseInt(rightAnime.score);
+  const answer = parseInt(leftArtist.score) < parseInt(rightArtist.score);
 
   const guessAnswer = (guess: boolean) => {
     const win =
       answer === guess ||
-      parseInt(leftAnime.score) === parseInt(rightAnime.score);
+      parseInt(leftArtist.score) === parseInt(rightArtist.score);
 
     if (win) {
       setScore((score) => score + 1);
-      setLeftAnime(rightAnime);
-      setRightAnime(getRandomAnime());
+      setLeftArtist(rightArtist);
+      setRightArtist(getRandomArtist());
     } else {
       setScore(0);
       setHasUserLost(true);
@@ -64,18 +64,18 @@ const Game = (props: GameProps) => {
   return (
     <div className="grid h-screen w-screen grid-rows-2 bg-gray-800 md:grid-cols-2">
       <div className="h-full w-full md:h-screen">
-        <LeftAnime
-          title={leftAnime.title}
-          score={leftAnime.score}
-          image_url={leftAnime.image_url}
+        <LeftArtist
+          title={leftArtist.title}
+          score={leftArtist.score}
+          image_url={leftArtist.image_url}
         />
       </div>
 
       <div className="h-full w-full md:h-screen">
-        <RightAnime
-          title={rightAnime.title}
-          score={rightAnime.score}
-          image_url={rightAnime.image_url}
+        <RightArtist
+          title={rightArtist.title}
+          score={rightArtist.score}
+          image_url={rightArtist.image_url}
           guessAnswer={guessAnswer}
         />
       </div>

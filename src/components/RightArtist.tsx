@@ -1,15 +1,16 @@
-import { GuessAnime } from '@/utils/Types';
+import { GuessArtist } from '@/utils/Types';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai';
 
-const RightAnime = (props: GuessAnime) => {
+const RightArtist = (props: GuessArtist) => {
   const { title, image_url, guessAnswer } = props;
 
   return (
-    <div className="flex h-full w-full flex-col items-center md:justify-center">
-      <img
-        src={image_url}
-        className="h-[30vw] w-[37vw] transform rounded-xl object-cover transition duration-200 hover:scale-105 md:h-[25vw] md:w-[32vw]"
-      />
+    <div
+      className="cover flex h-full w-full flex-col items-center md:justify-center"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${image_url})`,
+      }}
+    >
       <h1 className="mt-4 px-4 text-center text-3xl font-bold text-white drop-shadow-md">
         &quot;{title}&quot;
       </h1>
@@ -40,4 +41,4 @@ const RightAnime = (props: GuessAnime) => {
   );
 };
 
-export default RightAnime;
+export default RightArtist;

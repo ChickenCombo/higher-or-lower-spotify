@@ -1,6 +1,6 @@
-import { Anime } from './Types';
+import { Artist } from './Types';
 
-export const getAnimeList = (): Array<Anime> => {
+export const getArtistList = (): Array<Artist> => {
   return [
     {
       title: 'Koroshi Ai',

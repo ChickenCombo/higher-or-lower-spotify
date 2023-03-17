@@ -1,11 +1,11 @@
 // Types
-export interface Anime {
+export interface Artist {
   title: string;
   score: string;
   image_url: string;
 }
 
-export interface GuessAnime {
+export interface GuessArtist {
   title: string;
   score: string;
   image_url: string;
