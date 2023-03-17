@@ -11,20 +11,22 @@ const App = () => {
     setHasGameStarted((value) => !value);
   };
 
-  return (
-    <>
-      {hasGameStarted ? (
-        <Home handleStart={handleStart} />
-      ) : hasUserLost ? (
-        <Lost
-          setHasGameStarted={setHasGameStarted}
-          setHasUserLost={setHasUserLost}
-        />
-      ) : (
-        <Game setHasUserLost={setHasUserLost} />
-      )}
-    </>
-  );
+  let gameComponent;
+
+  if (hasGameStarted) {
+    gameComponent = <Home handleStart={handleStart} />;
+  } else if (hasUserLost) {
+    gameComponent = (
+      <Lost
+        setHasGameStarted={setHasGameStarted}
+        setHasUserLost={setHasUserLost}
+      />
+    );
+  } else {
+    gameComponent = <Game setHasUserLost={setHasUserLost} />;
+  }
+
+  return <>{gameComponent}</>;
 };
 
 export default App;
