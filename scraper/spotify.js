@@ -1,11 +1,14 @@
 import { launch } from 'puppeteer';
-import { spotifyArtistsList as links } from './artists.js';
+import { spotifyArtistsList } from './artists.js';
+import fs from 'fs';
+
 
 (async () => {
   const browser = await launch();
   const page = await browser.newPage();
+  const artistsData = [];
 
-  for (const link of links) {
+  for (const link of spotifyArtistsList) {
     await page.goto(link);
     await page.waitForSelector('.Ydwa1P5GkCggtLlSvphs');
 
@@ -25,8 +28,17 @@ import { spotifyArtistsList as links } from './artists.js';
       return { artist, listeners, image_url };
     });
 
-    console.log(artist, ',');
+    artistsData.push(artist);
   }
 
   await browser.close();
+
+  const json = JSON.stringify(artistsData);
+  fs.writeFile('artists.json', json, 'utf8', (error) => {
+    if (error) {
+      console.log('Error writing file:', error);
+    } else {
+      console.log('File saved successfully');
+    }
+  });
 })();
