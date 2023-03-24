@@ -18,7 +18,7 @@ const Game = () => {
     }
 
     return artistList.splice(
-      Math.floor(Math.random() * (artistList.length - 1)),
+      Math.floor(Math.random() * artistList.length),
       1,
     )[0];
   };
