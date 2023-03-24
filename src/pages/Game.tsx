@@ -17,10 +17,11 @@ const Game = () => {
       getArtistList();
     }
 
-    return artistList.splice(
-      Math.floor(Math.random() * artistList.length),
-      1,
-    )[0];
+    const index = Math.floor(Math.random() * artistList.length);
+    const artist = artistList[index];
+    artistList.splice(index, 1);
+
+    return artist;
   };
 
   const localStorage = window.localStorage;
