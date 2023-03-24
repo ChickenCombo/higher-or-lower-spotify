@@ -24,7 +24,6 @@ export const spotifyArtistsList = [
   'https://open.spotify.com/artist/73sIBHcqh3Z3NyqHKZ7FOL', // Childish Gambino
   'https://open.spotify.com/artist/13ubrt8QOOCPljQ2FL1Kca', // A$AP Rocky
   'https://open.spotify.com/artist/6USv9qhCn6zfxlBQIYJ9qs', // Dominic Fike
-  'https://open.spotify.com/artist/3LZZPxNDGDFVSIPqf4JuEf', // Ice Spice
   'https://open.spotify.com/artist/2auiVi8sUZo17dLy1HwrTU', // Solange
   'https://open.spotify.com/artist/4MCBfE4596Uoi2O4DtmEMz', // Juice WRLD
   'https://open.spotify.com/artist/4RfI1z9u2xIc5Qnqac4JbO', // YUKIKA
@@ -32,14 +31,12 @@ export const spotifyArtistsList = [
   'https://open.spotify.com/artist/6PfSUFtkMVoDkx4MQkzOi3', // 100 gecs
   'https://open.spotify.com/artist/3sklFG9fuDAq3vbIZlkNH6', // Laura Les
   'https://open.spotify.com/artist/25uiPmTg16RbhZWAqwLBy5', // Charli XCX
-  'https://open.spotify.com/artist/5mlbvTfWUOfDrUIK6dkNzv', // Poppy
   'https://open.spotify.com/artist/053q0ukIDRgzwTr4vNSwab', // Grimes
   'https://open.spotify.com/artist/35l9BRT7MXmM8bv2WDQiyB', // beabadoobee
   'https://open.spotify.com/artist/6nB0iY1cjSY1KyhYyuIIKH', // FKA twigs
   'https://open.spotify.com/artist/1U1el3k54VvEUzo3ybLPlM', // Kali Uchis
   'https://open.spotify.com/artist/00FQb4jTyendYWaN8pK0wa', // Lana Del Rey
   'https://open.spotify.com/artist/2uYWxilOVlUdk4oV9DvwqK', // Mitski
-  'https://open.spotify.com/artist/3HqSLMAZ3g3d5poNaI7GOU', // IU
   'https://open.spotify.com/artist/7n2Ycct7Beij7Dj7meI4X0', // TWICE
   'https://open.spotify.com/artist/41MozSoPIsD1dJM0CLPjZF', // BLACKPINK
   'https://open.spotify.com/artist/2KC9Qb60EaY0kW4eH68vr3', // ITZY
@@ -88,7 +85,6 @@ export const spotifyArtistsList = [
   'https://open.spotify.com/artist/68kEuyFKyqrdQQLLsmiatm', // Vince Staples
   'https://open.spotify.com/artist/6U3ybJ9UHNKEdsH7ktGBZ7', // JID
   'https://open.spotify.com/artist/6OqhFYFJDnBBHas02HopPT', // Kero Kero Bonito
-  'https://open.spotify.com/artist/3Rq3YOF9YG9YfCWD4D56RZ', // Nujabes
   'https://open.spotify.com/artist/6AMd49uBDJfhf30Ak2QR5s', // Coi Leray
   'https://open.spotify.com/artist/6vWDO969PvNqNYHIOW5v0m', // Beyoncé
   'https://open.spotify.com/artist/4Gso3d4CscCijv0lmajZWs', // Don Toliver
