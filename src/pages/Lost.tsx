@@ -1,8 +1,10 @@
-import { LostProps } from '@/utils/Types';
+import { GameContext } from '@/App';
+import { useContext } from 'react';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 
-const Lost = (props: LostProps) => {
-  const { setHasUserLost, setHasGameStarted, score, setScore } = props;
+const Lost = () => {
+  const { setHasUserLost, setHasGameStarted, score, setScore } =
+    useContext(GameContext);
 
   const resetGame = () => {
     setScore(0);

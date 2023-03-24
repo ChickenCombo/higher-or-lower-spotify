@@ -1,9 +1,14 @@
-import { HomeProps } from '@/utils/Types';
 import { BsSpotify } from 'react-icons/bs';
 import { AiOutlineArrowRight } from 'react-icons/ai';
+import { GameContext } from '@/App';
+import { useContext } from 'react';
 
-const Home = (props: HomeProps) => {
-  const { handleStart } = props;
+const Home = () => {
+  const { setHasGameStarted } = useContext(GameContext);
+
+  const handleStart = () => {
+    setHasGameStarted((value: boolean) => !value);
+  };
 
   return (
     <div className="flex h-screen flex-col items-center justify-center bg-gray-800 p-8 text-center text-white">

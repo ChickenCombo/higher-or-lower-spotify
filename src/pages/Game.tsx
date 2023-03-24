@@ -1,13 +1,14 @@
 import { getArtistList } from '@/utils/Artist';
-import { Artist, GameProps } from '@/utils/Types';
+import { Artist } from '@/utils/Types';
 import CurrentScore from '@/components/CurrentScore';
 import HighScore from '@/components/HighScore';
 import LeftArtist from '@/components/LeftArtist';
 import RightArtist from '@/components/RightArtist';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { GameContext } from '@/App';
 
-const Game = (props: GameProps) => {
-  const { setHasUserLost, score, setScore } = props;
+const Game = () => {
+  const { setHasUserLost, score, setScore } = useContext(GameContext);
 
   const artistList: Array<Artist> = getArtistList();
 

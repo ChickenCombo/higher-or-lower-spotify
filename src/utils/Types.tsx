@@ -1,4 +1,12 @@
-// Types
+export interface GameContextType {
+  hasGameStarted: boolean;
+  setHasGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
+  hasUserLost: boolean;
+  setHasUserLost: React.Dispatch<React.SetStateAction<boolean>>;
+  score: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+}
+
 export interface Artist {
   title: string;
   score: string;
@@ -14,22 +22,4 @@ export interface GuessArtist {
 
 export interface Score {
   score: number;
-}
-
-// Props
-export interface LostProps {
-  setHasGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
-  setHasUserLost: React.Dispatch<React.SetStateAction<boolean>>;
-  score: number;
-  setScore: React.Dispatch<React.SetStateAction<number>>;
-}
-
-export interface HomeProps {
-  handleStart: () => void;
-}
-
-export interface GameProps {
-  score: number;
-  setScore: React.Dispatch<React.SetStateAction<number>>;
-  setHasUserLost: React.Dispatch<React.SetStateAction<boolean>>;
 }
