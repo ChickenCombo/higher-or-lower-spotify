@@ -15,6 +15,8 @@ const RightArtist = (props: GuessArtist) => {
         &quot;{artist}&quot;
       </h1>
 
+      <p className="m-4 text-center text-sm text-white drop-shadow-md">has</p>
+
       <button
         type="button"
         className="m-1 mt-4 w-full max-w-[10rem] transform cursor-pointer rounded-full bg-[#59ac51] py-2 text-lg font-bold text-white drop-shadow-md transition duration-200 hover:scale-105 hover:bg-[#3e7938]"
