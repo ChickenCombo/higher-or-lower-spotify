@@ -7,7 +7,7 @@ import RightArtist from '@/components/RightArtist';
 import { useState, useEffect } from 'react';
 
 const Game = (props: GameProps) => {
-  const { setHasUserLost } = props;
+  const { setHasUserLost, score, setScore } = props;
 
   const artistList: Array<Artist> = getArtistList();
 
@@ -29,7 +29,6 @@ const Game = (props: GameProps) => {
 
   const [leftArtist, setLeftArtist] = useState<Artist>(getRandomArtist());
   const [rightArtist, setRightArtist] = useState<Artist>(getRandomArtist());
-  const [score, setScore] = useState<number>(0);
   const [highScore, setHighScore] = useState<number>(
     Number(localStorage.getItem('spotify-high-score')),
   );
@@ -56,7 +55,6 @@ const Game = (props: GameProps) => {
       setLeftArtist(rightArtist);
       setRightArtist(getRandomArtist());
     } else {
-      setScore(0);
       setHasUserLost(true);
     }
   };

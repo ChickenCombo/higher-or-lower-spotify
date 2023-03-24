@@ -20,6 +20,8 @@ export interface Score {
 export interface LostProps {
   setHasGameStarted: React.Dispatch<React.SetStateAction<boolean>>;
   setHasUserLost: React.Dispatch<React.SetStateAction<boolean>>;
+  score: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export interface HomeProps {
@@ -27,5 +29,7 @@ export interface HomeProps {
 }
 
 export interface GameProps {
+  score: number;
+  setScore: React.Dispatch<React.SetStateAction<number>>;
   setHasUserLost: React.Dispatch<React.SetStateAction<boolean>>;
 }
