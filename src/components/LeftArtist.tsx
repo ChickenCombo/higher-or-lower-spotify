@@ -3,6 +3,8 @@ import { Artist } from '@/utils/Types';
 const LeftArtist = (props: Artist) => {
   const { title, score, image_url } = props;
 
+  const formatter = new Intl.NumberFormat('en-US');
+
   return (
     <div
       className="cover flex h-full w-full flex-col items-center justify-center"
@@ -15,7 +17,7 @@ const LeftArtist = (props: Artist) => {
       </h1>
       <p className="m-4 text-center text-sm text-white drop-shadow-md">has</p>
       <h1 className="text-center text-6xl font-bold text-green-400 drop-shadow-md">
-        {score}
+        {formatter.format(parseInt(score))}
       </h1>
       <p className="text-center text-sm text-white drop-shadow-md">
         monthly listeners
