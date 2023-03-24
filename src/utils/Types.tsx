@@ -8,14 +8,14 @@ export interface GameContextType {
 }
 
 export interface Artist {
-  title: string;
-  score: string;
+  artist: string;
+  listeners: string;
   image_url: string;
 }
 
 export interface GuessArtist {
-  title: string;
-  score: string;
+  artist: string;
+  listeners: string;
   image_url: string;
   guessAnswer: (guess: boolean) => void;
 }

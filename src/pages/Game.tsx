@@ -44,12 +44,13 @@ const Game = () => {
     }
   }, [score]);
 
-  const answer = parseInt(leftArtist.score) < parseInt(rightArtist.score);
+  const answer =
+    parseInt(leftArtist.listeners) < parseInt(rightArtist.listeners);
 
   const guessAnswer = (guess: boolean) => {
     const win =
       answer === guess ||
-      parseInt(leftArtist.score) === parseInt(rightArtist.score);
+      parseInt(leftArtist.listeners) === parseInt(rightArtist.listeners);
 
     if (win) {
       setScore((score) => score + 1);
@@ -68,16 +69,16 @@ const Game = () => {
       <div className="grid h-screen w-screen grid-rows-2 bg-gray-800 md:grid-cols-2">
         <div className="h-full w-full md:h-screen">
           <LeftArtist
-            title={leftArtist.title}
-            score={leftArtist.score}
+            artist={leftArtist.artist}
+            listeners={leftArtist.listeners}
             image_url={leftArtist.image_url}
           />
         </div>
 
         <div className="h-full w-full md:h-screen">
           <RightArtist
-            title={rightArtist.title}
-            score={rightArtist.score}
+            artist={rightArtist.artist}
+            listeners={rightArtist.listeners}
             image_url={rightArtist.image_url}
             guessAnswer={guessAnswer}
           />

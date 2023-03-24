@@ -2,7 +2,7 @@ import { GuessArtist } from '@/utils/Types';
 import { AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai';
 
 const RightArtist = (props: GuessArtist) => {
-  const { title, image_url, guessAnswer } = props;
+  const { artist, image_url, guessAnswer } = props;
 
   return (
     <div
@@ -12,7 +12,7 @@ const RightArtist = (props: GuessArtist) => {
       }}
     >
       <h1 className="mt-4 px-4 text-center text-3xl font-bold text-white drop-shadow-md">
-        &quot;{title}&quot;
+        &quot;{artist}&quot;
       </h1>
 
       <button

@@ -1,7 +1,7 @@
 import { Artist } from '@/utils/Types';
 
 const LeftArtist = (props: Artist) => {
-  const { title, score, image_url } = props;
+  const { artist, listeners, image_url } = props;
 
   const formatter = new Intl.NumberFormat('en-US');
 
@@ -13,11 +13,11 @@ const LeftArtist = (props: Artist) => {
       }}
     >
       <h1 className="mt-4 px-4 text-center text-3xl font-bold text-white drop-shadow-md">
-        &quot;{title}&quot;
+        &quot;{artist}&quot;
       </h1>
       <p className="m-4 text-center text-sm text-white drop-shadow-md">has</p>
       <h1 className="text-center text-6xl font-bold text-green-400 drop-shadow-md">
-        {formatter.format(parseInt(score))}
+        {formatter.format(parseInt(listeners))}
       </h1>
       <p className="text-center text-sm text-white drop-shadow-md">
         monthly listeners
