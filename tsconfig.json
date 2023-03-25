@@ -19,5 +19,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["./src", "scraper/spotify.js"]
+  "include": ["./src", "scraper/spotify.ts"]
 }

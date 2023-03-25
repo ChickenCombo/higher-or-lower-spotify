@@ -47,13 +47,13 @@ http://localhost:5173/
 
 How to scrape your own Spotify data:
 
-1. Update the `artists.js` file with the Spotify URLs of the artists you want to scrape data from.
+1. Update the `artists.ts` file with the Spotify URLs of the artists you want to scrape data from.
 
 2. Run the following commands:
 
 ```
 cd scraper
-node spotify.js
+npx vite-node spotify.ts
 ```
 
 3. Replace the values `Artist.tsx` with your own extracted data.
