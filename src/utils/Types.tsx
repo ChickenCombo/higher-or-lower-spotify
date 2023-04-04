@@ -5,6 +5,8 @@ export interface GameContextType {
   setHasUserLost: React.Dispatch<React.SetStateAction<boolean>>;
   score: number;
   setScore: React.Dispatch<React.SetStateAction<number>>;
+  isButtonVisible: boolean;
+  setIsButtonVisible: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface Artist {
@@ -22,4 +24,8 @@ export interface GuessArtist {
 
 export interface Score {
   score: number;
+}
+
+export interface Listeners {
+  listeners: number;
 }

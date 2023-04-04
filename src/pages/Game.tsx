@@ -8,7 +8,8 @@ import { useState, useEffect, useContext } from 'react';
 import { GameContext } from '@/App';
 
 const Game = () => {
-  const { setHasUserLost, score, setScore } = useContext(GameContext);
+  const { setHasUserLost, score, setScore, setIsButtonVisible } =
+    useContext(GameContext);
 
   const artistList: Array<Artist> = getArtistList();
 
@@ -49,16 +50,22 @@ const Game = () => {
     parseInt(leftArtist.listeners) < parseInt(rightArtist.listeners);
 
   const guessAnswer = (guess: boolean) => {
+    setIsButtonVisible(false);
+
     const win =
       answer === guess ||
       parseInt(leftArtist.listeners) === parseInt(rightArtist.listeners);
 
     if (win) {
       setScore((score) => score + 1);
-      setLeftArtist(rightArtist);
-      setRightArtist(getRandomArtist());
+      setTimeout(() => {
+        setLeftArtist(rightArtist);
+        setRightArtist(getRandomArtist());
+        setIsButtonVisible(true);
+      }, 2000);
     } else {
       setHasUserLost(true);
+      setIsButtonVisible(true);
     }
   };
 

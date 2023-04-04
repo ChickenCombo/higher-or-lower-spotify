@@ -13,12 +13,15 @@ export const GameContext = createContext<GameContextType>({
   setHasUserLost: () => {},
   score: 0,
   setScore: () => {},
+  isButtonVisible: true,
+  setIsButtonVisible: () => {},
 });
 
 const App = () => {
   const [hasGameStarted, setHasGameStarted] = useState<boolean>(true);
   const [hasUserLost, setHasUserLost] = useState<boolean>(false);
   const [score, setScore] = useState<number>(0);
+  const [isButtonVisible, setIsButtonVisible] = useState<boolean>(true);
 
   const contextValue = useMemo(() => {
     return {
@@ -28,8 +31,10 @@ const App = () => {
       setHasUserLost,
       score,
       setScore,
+      isButtonVisible,
+      setIsButtonVisible,
     };
-  }, [hasGameStarted, hasUserLost, score]);
+  }, [hasGameStarted, hasUserLost, score, isButtonVisible]);
 
   return (
     <GameContext.Provider value={contextValue}>
